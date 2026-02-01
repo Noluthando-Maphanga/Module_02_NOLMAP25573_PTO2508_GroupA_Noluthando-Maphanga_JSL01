@@ -1,0 +1,154 @@
+/* General Styles */
+:root {
+  --bg-light: #f4f7fd;
+  --white: #ffffff;
+  --purple: #635fc7;
+  --text-main: #000112;
+  --text-gray: #828fa3;
+  --todo-color: #49c4e5;
+  --doing-color: #8471f2;
+  --done-color: #67e2ae;
+}
+
+body {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-main);
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 260px;
+  background-color: var(--white);
+  border-right: 1px solid #e4ebfa;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  gap: 10px;
+}
+
+.logo h1 {
+  font-size: 30px;
+  margin: 0;
+}
+.logo img {
+  height: 25px; /* Adjust this value to match your font size exactly */
+  width: auto; /* Maintains the aspect ratio of your SVG */
+  object-fit: contain;
+}
+
+/* Ensure the container keeps them aligned horizontally */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Space between the icon and the word 'kanban' */
+}
+.menu-label {
+  font-size: 12px;
+  letter-spacing: 2.4px;
+  color: var(--text-gray);
+  padding-left: 30px;
+}
+
+.board-btn {
+  width: 90%;
+  border: none;
+  background: none;
+  padding: 15px 30px;
+  border-radius: 0 50px 50px 0;
+  text-align: left;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--text-gray);
+}
+
+.board-btn.active {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+/* Main Layout */
+.main-layout {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-header {
+  background-color: var(--white);
+  padding: 20px 30px;
+  border-bottom: 1px solid #e4ebfa;
+}
+
+/* Kanban Columns */
+.board-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2.4px;
+  color: var(--text-gray);
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+}
+.todo-dot {
+  background-color: var(--todo-color);
+}
+.doing-dot {
+  background-color: var(--doing-color);
+}
+.done-dot {
+  background-color: var(--done-color);
+}
+
+/* Task Cards */
+.task-card {
+  background: var(--white);
+  padding: 25px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.1);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* MOBILE VIEW - RESPONSIVENESS */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* Hide sidebar on mobile as per standard Kanban mobile apps */
+  }
+
+  .board-columns {
+    grid-template-columns: 1fr; /* Stack columns vertically */
+    padding: 10px;
+  }
+
+  .top-header {
+    text-align: center;
+  }
+}
